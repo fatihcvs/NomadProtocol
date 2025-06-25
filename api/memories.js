@@ -1,9 +1,7 @@
-// Ethers.js kütüphanesini arka plan hizmetinde kullanmak için import ediyoruz
-const { ethers } = require('ethers');
+import { ethers } from 'ethers';
 
-// Bu fonksiyon, web sitemiz /api/memories adresine istek attığında çalışacak
-exports.handler = async function(event, context) {
-    
+// Vercel'in standart serverless fonksiyon formatı
+export default async function handler(req, res) {
     const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
     const ledgerContractAbi = ["event MemoryAnchored(address indexed user, uint256 timestamp, string data)"];
     
@@ -13,7 +11,7 @@ exports.handler = async function(event, context) {
 
     try {
         const latestBlock = await provider.getBlockNumber();
-        const fromBlock = latestBlock - 250000; // Son 250,000 bloğu tara (yaklaşık 8-9 gün)
+        const fromBlock = latestBlock - 250000; // Son ~1 haftalık veriyi tara
         
         const events = await ledgerContract.queryFilter('MemoryAnchored', fromBlock, 'latest');
         
@@ -26,25 +24,19 @@ exports.handler = async function(event, context) {
                         lon: parseFloat(decodedMessage.split('LON:')[1].split(';')[0]),
                         message: decodedMessage.split('MSG:')[1].trim(),
                         user: event.args.user,
-                        timestamp: event.args.timestamp * 1000, // Javascript'in anlayacağı formata çevir
+                        timestamp: event.args.timestamp * 1000,
                         txHash: event.transactionHash
                     };
-                } catch (e) {
-                    return null;
-                }
+                } catch (e) { return null; }
             }
             return null;
-        }).filter(m => m !== null); // Hatalı parse edilenleri listeden çıkar
+        }).filter(m => m !== null);
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify(memories.reverse()) // En yeniden eskiye sırala ve gönder
-        };
+        // Başarılı olursa, veriyi JSON olarak gönder
+        res.status(200).json(memories.reverse());
 
     } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Could not fetch memories from the blockchain." })
-        };
+        // Hata olursa, 500 koduyla bir hata mesajı gönder
+        res.status(500).json({ error: "Could not fetch memories from the blockchain." });
     }
-};
+}
