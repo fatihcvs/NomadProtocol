@@ -64,6 +64,7 @@ section { padding: 4rem 0; }
 .guide-step code { background-color: rgba(13, 12, 34, 0.8); color: #f0f0f0; }
 
 /* --- Tokenomics (Görsel Entegrasyonlu) --- */
+#tokenomics { border-top: 1px solid var(--glass-border); }
 #tokenomics .container { max-width: 1200px; }
 .tokenomics-layout { display: flex; align-items: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
 .token-visual { flex: 1; min-width: 300px; }
@@ -94,6 +95,20 @@ section { padding: 4rem 0; }
 .roadmap-phase ul li { color: var(--secondary-color); }
 .roadmap-phase ul li::before { left: -1rem; }
 
+/* --- Anı Çapalama Bölümü --- */
+#anchor-memory { background-color: #060612; padding: 5rem 0; border-top: 1px solid var(--glass-border); }
+.anchor-form { max-width: 600px; margin: 2rem auto; padding: 2.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 15px; text-align: left; }
+.input-group { margin-bottom: 1.5rem; }
+.input-group label { display: block; color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 600; }
+.input-group input, .input-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--glass-border); border-radius: 8px; background-color: rgba(13, 12, 34, 0.8); color: var(--primary-color); font-family: 'Inter', sans-serif; font-size: 1rem; box-sizing: border-box; }
+.anchor-button { width: 100%; margin-top: 1rem; }
+#anchor-instructions { margin-top: 2rem; padding: 1.5rem; background: rgba(13, 12, 34, 0.9); border: 1px solid var(--accent-color); border-radius: 10px; }
+.hidden { display: none; }
+#anchor-instructions h3 { color: var(--accent-color); margin-bottom: 1rem; }
+.code-box { background-color: #0d0c22; color: #f0f0f0; padding: 1rem; border-radius: 5px; font-family: 'Courier New', Courier, monospace; word-wrap: break-word; margin: 1rem 0; }
+.copy-btn { padding: 0.3rem 0.6rem; margin-left: 1rem; border: 1px solid var(--accent-color); background: transparent; color: var(--accent-color); border-radius: 5px; cursor: pointer; }
+.copy-btn:hover { background: var(--accent-color); color: white; }
+
 /* --- Diğer Sayfalar --- */
 #explorer-section, #ledger-section, #manifesto-content { padding-top: 8rem; }
 #map { width: 100%; height: 70vh; border-radius: 15px; margin-top: 2rem; border: 1px solid var(--glass-border); }
@@ -103,132 +118,3 @@ section { padding: 4rem 0; }
 .entry-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-top: 1.5rem; }
 
 footer { text-align: center; padding: 4rem 2rem; color: var(--secondary-color); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
-/* --- Whitepaper Sayfası Stilleri --- */
-#whitepaper-content {
-    padding-top: 8rem;
-    padding-bottom: 6rem;
-}
-
-#whitepaper-content .container {
-    max-width: 800px;
-    text-align: left;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 3rem 4rem;
-}
-
-#whitepaper-content h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.paper-section {
-    margin-bottom: 2.5rem;
-}
-
-.paper-section h3 {
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.paper-section p {
-    max-width: 100%;
-    margin-bottom: 1rem;
-    line-height: 1.8;
-}
-
-.paper-section code {
-    background-color: #1a1a2e;
-    color: #ff79c6;
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-}
-/* --- YENİ ANKOR BÖLÜMÜ STİLLERİ --- */
-#anchor-memory {
-    background-color: var(--background-color);
-    padding: 5rem 0;
-    border-top: 1px solid var(--glass-border);
-}
-
-.anchor-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2.5rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    text-align: left;
-}
-
-.input-group {
-    margin-bottom: 1.5rem;
-}
-
-.input-group label {
-    display: block;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.input-group input,
-.input-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid var(--glass-border);
-    border-radius: 8px;
-    background-color: rgba(13, 12, 34, 0.8);
-    color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-.anchor-button {
-    width: 100%;
-}
-
-#anchor-instructions {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(13, 12, 34, 0.9);
-    border: 1px solid var(--accent-color);
-    border-radius: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-#anchor-instructions h3 {
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.code-box {
-    background-color: #0d0c22;
-    color: #f0f0f0;
-    padding: 1rem;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    word-wrap: break-word;
-    margin: 1rem 0;
-}
-
-.copy-btn {
-    padding: 0.3rem 0.6rem;
-    margin-left: 1rem;
-    border: 1px solid var(--accent-color);
-    background: transparent;
-    color: var(--accent-color);
-    border-radius: 5px;
-    cursor: pointer;
-}
-.copy-btn:hover {
-    background: var(--accent-color);
-    color: white;
-}
