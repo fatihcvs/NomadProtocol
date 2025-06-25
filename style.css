@@ -1,33 +1,13 @@
 /* --- TASARIM v2.0 --- */
 /* --- Genel Stiller --- */
-:root {
-    --primary-color: #f0f0f0;
-    --secondary-color: #a9a9b3;
-    --background-color: #0d0c22;
-    --accent-color: #9333ea; /* Canlı Mor */
-    --glass-bg: rgba(26, 26, 46, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.1);
-}
-
+:root { --primary-color: #f0f0f0; --secondary-color: #a9a9b3; --background-color: #0d0c22; --accent-color: #9333ea; --glass-bg: rgba(26, 26, 46, 0.5); --glass-border: rgba(255, 255, 255, 0.1); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--background-color);
-    background-image: radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.15), transparent 30%), radial-gradient(circle at 80% 90%, rgba(79, 70, 229, 0.15), transparent 40%);
-    color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
+body { background-color: var(--background-color); background-image: radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.15), transparent 30%), radial-gradient(circle at 80% 90%, rgba(79, 70, 229, 0.15), transparent 40%); color: var(--primary-color); font-family: 'Inter', sans-serif; line-height: 1.7; overflow-x: hidden; }
 .container { max-width: 1100px; margin: auto; padding: 6rem 2rem; text-align: center; }
-
 h1, h2, h3 { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height: 1.2; color: #ffffff; }
 h1 { font-size: 4rem; }
 h2 { font-size: 2.8rem; margin-bottom: 1.5rem; }
 p { color: var(--secondary-color); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-/* --- Navigasyon (Glassmorphism) --- */
 header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(13, 12, 34, 0.6); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); }
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; max-width: 1400px; margin: auto; }
 nav .logo { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; font-weight: 700; }
@@ -35,12 +15,7 @@ nav ul { list-style: none; display: flex; }
 nav ul li { margin-left: 2.5rem; }
 nav a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.3s; }
 nav a:hover { color: var(--accent-color); }
-
-main {
-    padding-top: 80px; /* Sabit navigasyon için boşluk */
-}
-
-/* --- Genel Bölüm ve Buton Stilleri --- */
+main { padding-top: 80px; }
 section { padding: 4rem 0; }
 .btn { padding: 0.8rem 1.8rem; border: 2px solid var(--accent-color); border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 0.5rem; transition: all 0.3s ease; }
 .btn-primary { background-color: var(--accent-color); color: var(--primary-color); }
@@ -48,73 +23,51 @@ section { padding: 4rem 0; }
 .btn-secondary { color: var(--secondary-color); border-color: var(--secondary-color); }
 .btn-secondary:hover { background-color: var(--secondary-color); color: var(--background-color); border-color: var(--secondary-color); box-shadow: none; }
 .link-arrow { color: var(--accent-color); font-weight: 600; text-decoration: none; }
-
-/* --- Proof Bölümü --- */
 #proof { border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
-#proof .container { display: flex; align-items: center; justify-content: center; gap: 4rem; text-align: left; }
-.proof-text, .proof-image { flex: 1; }
-.proof-image img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
-
-/* --- Rehber ve Diğer Bölümler (Glassmorphism Kartlar) --- */
-#how-it-works, #tokenomics, #roadmap, #token-details, #community { background: transparent; }
-.guide-step, .roadmap-phase, .ledger-entry, .detail-card { background: var(--glass-bg); backdrop-filter: blur(5px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.guide-step:hover, .roadmap-phase:hover, .ledger-entry:hover, .detail-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-.guide-step h3, .roadmap-phase h3 { margin-bottom: 1rem; color: var(--accent-color); }
-.guide-step p, .roadmap-phase ul li, .entry-message, .entry-meta { color: var(--secondary-color); }
+#proof .container, #tokenomics .tokenomics-layout { display: flex; align-items: center; gap: 4rem; text-align: left; flex-wrap: wrap; }
+.proof-text, .proof-image, .token-visual, .token-details-wrapper { flex: 1; min-width: 300px; }
+.proof-image img, .token-visual img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+.token-visual img { box-shadow: 0 0 40px rgba(147, 51, 234, 0.4); }
+.token-details-wrapper { display: flex; flex-direction: column; gap: 2rem; }
+#how-it-works, #roadmap, #token-details, #anchor-ui { background: transparent; border-top: 1px solid var(--glass-border); }
+.guide-step, .roadmap-phase, .detail-card, .token-info { background: var(--glass-bg); backdrop-filter: blur(5px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left;}
+.guide-step:hover, .roadmap-phase:hover, .detail-card:hover, .token-info:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.guide-step h3, .roadmap-phase h3, .detail-card h3, .token-info h3 { margin-bottom: 1rem; color: var(--accent-color); font-size: 1.5rem; }
+.guide-step p, .roadmap-phase ul li, .detail-card p, .token-info ul li { max-width: 100%; margin-left: 0; margin-right: 0; color: var(--secondary-color); }
 .guide-step code { background-color: rgba(13, 12, 34, 0.8); color: #f0f0f0; }
-
-/* --- Tokenomics (Görsel Entegrasyonlu) --- */
-#tokenomics { border-top: 1px solid var(--glass-border); }
-#tokenomics .container { max-width: 1200px; }
-.tokenomics-layout { display: flex; align-items: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
-.token-visual { flex: 1; min-width: 300px; }
-.token-visual img { width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(147, 51, 234, 0.4); }
-.token-details-wrapper { flex: 1.5; min-width: 300px; display: flex; flex-direction: column; gap: 2rem; }
-.token-info { background: var(--glass-bg); backdrop-filter: blur(5px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 2rem; text-align: left;}
-.token-info h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-color); }
-.token-info ul { list-style: none; padding: 0;}
-.token-info ul li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
-.token-info ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; font-size: 1.5rem; line-height: 1; }
-
-/* --- Token Detayları Bölümü --- */
-#token-details { border-top: 1px solid var(--glass-border); }
-.details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: left; }
-.detail-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
-.detail-card p { max-width: 100%; margin-left: 0; margin-right: 0; }
 .detail-card ul { list-style: none; padding: 0; }
 .detail-card ul li { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); }
 .detail-card ul li:last-child { border-bottom: none; }
 .detail-card ul li strong { color: var(--primary-color); }
 .card-icon { margin-bottom: 1.5rem; }
 .card-icon img { width: 50px; height: 50px; background-color: rgba(147, 51, 234, 0.1); padding: 10px; border-radius: 50%; }
-
-/* --- Yol Haritası --- */
-#roadmap .container { max-width: 1200px; }
+#roadmap .container, #tokenomics .container { max-width: 1200px; }
 .roadmap-container { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap; }
-.roadmap-phase span { font-size: 0.8rem; font-weight: bold; color: var(--secondary-color); }
-.roadmap-phase ul li { color: var(--secondary-color); }
-.roadmap-phase ul li::before { left: -1rem; }
-
-/* --- Anı Çapalama Bölümü --- */
-#anchor-memory { background-color: #060612; padding: 5rem 0; border-top: 1px solid var(--glass-border); }
+.roadmap-phase { flex-basis: 22%; min-width: 250px; display: flex; flex-direction: column; }
+.roadmap-phase span { font-size: 0.8rem; font-weight: bold; }
+.roadmap-phase ul { list-style: none; padding-left: 1rem; }
+.roadmap-phase ul li::before { content: '›'; position: absolute; left: -1rem; color: var(--accent-color); font-weight: bold; }
+.token-info ul { padding: 0;}
+.token-info ul li::before { left: 0;}
+#anchor-ui { background-color: #060612; }
 .anchor-form { max-width: 600px; margin: 2rem auto; padding: 2.5rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 15px; text-align: left; }
 .input-group { margin-bottom: 1.5rem; }
 .input-group label { display: block; color: var(--primary-color); margin-bottom: 0.5rem; font-weight: 600; }
 .input-group input, .input-group textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--glass-border); border-radius: 8px; background-color: rgba(13, 12, 34, 0.8); color: var(--primary-color); font-family: 'Inter', sans-serif; font-size: 1rem; box-sizing: border-box; }
-.anchor-button { width: 100%; margin-top: 1rem; }
-#anchor-instructions { margin-top: 2rem; padding: 1.5rem; background: rgba(13, 12, 34, 0.9); border: 1px solid var(--accent-color); border-radius: 10px; }
-.hidden { display: none; }
-#anchor-instructions h3 { color: var(--accent-color); margin-bottom: 1rem; }
-.code-box { background-color: #0d0c22; color: #f0f0f0; padding: 1rem; border-radius: 5px; font-family: 'Courier New', Courier, monospace; word-wrap: break-word; margin: 1rem 0; }
-.copy-btn { padding: 0.3rem 0.6rem; margin-left: 1rem; border: 1px solid var(--accent-color); background: transparent; color: var(--accent-color); border-radius: 5px; cursor: pointer; }
-.copy-btn:hover { background: var(--accent-color); color: white; }
-
-/* --- Diğer Sayfalar --- */
-#explorer-section, #ledger-section, #manifesto-content { padding-top: 8rem; }
+#getLocationBtn { background: var(--secondary-color); color: var(--background-color); width: 100%; padding: 1rem; border: none; border-radius: 5px; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+#anchorBtn { background: var(--accent-color); color: var(--primary-color); margin-top: 1rem; width: 100%; padding: 1rem; border: none; border-radius: 5px; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+.ritual-note { font-size: 0.8rem; font-style: italic; text-align: center; color: var(--secondary-color); }
+#statusMessage { margin-top: 1rem; text-align: center; font-weight: 600; min-height: 24px; color: var(--accent-color);}
+#explorer-section, #ledger-section, #whitepaper-content { padding-top: 8rem; }
 #map { width: 100%; height: 70vh; border-radius: 15px; margin-top: 2rem; border: 1px solid var(--glass-border); }
 .manifesto-p { text-align: left; max-width: 720px; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; }
+#whitepaper-content .container { text-align: left; background: var(--glass-bg); border-radius: 15px; padding: 3rem 4rem; max-width: 800px;}
+#whitepaper-content h2 { text-align: center; margin-bottom: 3rem; }
+.paper-section { margin-bottom: 2.5rem; }
+.paper-section h3 { color: var(--accent-color); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); }
+.paper-section p { max-width: 100%; margin-bottom: 1rem; line-height: 1.8; }
 #ledger-entries { margin-top: 3rem; max-width: 768px; margin-left: auto; margin-right: auto; }
+.ledger-entry { margin-bottom: 2rem; }
 .entry-message { font-size: 1.2rem; font-style: italic; color: var(--primary-color); }
 .entry-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-top: 1.5rem; }
-
 footer { text-align: center; padding: 4rem 2rem; color: var(--secondary-color); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
