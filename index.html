@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="starfield"></div>
     <header>
         <nav>
             <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Nomad</a></div>
@@ -31,76 +32,31 @@
             </div>
         </section>
 
-        <section id="anchor-memory">
+        <section id="anchor-ui">
             <div class="container">
-                <h2>Anchor Your Moment</h2>
-                <p>Record your memory to the permanent ledger. Capture a place, a time, and a message for eternity.</p>
-                <div class="anchor-form">
-                    <div class="input-group">
-                        <label for="latitude">Latitude</label>
-                        <input type="text" id="latitude" placeholder="e.g., 41.01">
+                <h2>Anchor Your Own Memory</h2>
+                <p>Become a part of the collective journal. The ritual costs 1 $NMD as ink. Use the form below to permanently etch your moment onto the blockchain.</p>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="latInput">Latitude</label>
+                        <input type="text" id="latInput" placeholder="e.g., 39.93">
                     </div>
-                    <div class="input-group">
-                        <label for="longitude">Longitude</label>
-                        <input type="text" id="longitude" placeholder="e.g., 28.98">
+                    <div class="form-group">
+                        <label for="lonInput">Longitude</label>
+                        <input type="text" id="lonInput" placeholder="e.g., 32.85">
                     </div>
-                    <div class="input-group">
-                        <label for="message">Your Memory Message</label>
-                        <textarea id="message" placeholder="Your message here..." rows="3"></textarea>
+                    <button id="getLocationBtn">Get My Location</button>
+                    <div class="form-group full-width">
+                        <label for="msgInput">Your Message (Max 140 characters)</label>
+                        <textarea id="msgInput" rows="3" maxlength="140" placeholder="e.g., The journey begins."></textarea>
                     </div>
-                    <button class="btn btn-primary anchor-button" onclick="prepareAnchorData()">Prepare Anchor Data</button>
-                    <div id="anchor-instructions" class="hidden">
-                        <h3>Your Formatted Data:</h3>
-                        <p>1. Copy the text below. It's ready for the blockchain.</p>
-                        <div id="prepared-data" class="code-box"></div>
-                        <p style="margin-top:1.5rem;">2. Go to our Ledger Contract on BscScan.</p>
-                        <a href="https://bscscan.com/address/0xd34f98A99F313781a3F463ff151f721cFB1bE448#writeContract" target="_blank" class="btn btn-secondary">[ Go to Ledger Contract → ]</a>
-                        <p style="margin-top:1.5rem;">3. Connect your wallet, find the `anchor` function, paste your data, and write it to history!</p>
-                    </div>
+                    <p class="ritual-note">The Anchoring Ritual is a two-step process: spending 1 $NMD as 'ink', then inscribing your message.</p>
+                    <button id="anchorBtn">Begin Anchoring Ritual (1 NMD + Gas)</button>
+                    <div id="statusMessage"></div>
                 </div>
             </div>
         </section>
         
-        <section id="roadmap">
-            <div class="container">
-                <h2>Our Journey (Roadmap)</h2>
-                <div class="roadmap-container">
-                    <div class="roadmap-phase"><h3>Phase 1: The Spark ✅</h3><span>(Completed)</span><ul><li>Concept & Manifesto</li><li>Smart Contract Deployment</li><li>v1.0 Website Launch</li><li>First Memories Anchored</li></ul></div>
-                    <div class="roadmap-phase"><h3>Phase 2: The Cartographers ⏳</h3><span>(In Progress)</span><ul><li>Community Growth Initiatives</li><li>"First 100 Explorers" Program</li><li>Initial DEX Liquidity</li><li>Manifesto Translations</li></ul></div>
-                    <div class="roadmap-phase"><h3>Phase 3: The Living Ledger 🗺️</h3><span>(Planned)</span><ul><li>v2.0 Live Data Integration</li><li>Interactive Explorer v2</li><li>Personal Journeys Feature</li><li>Advanced Curation Tools</li></ul></div>
-                    <div class="roadmap-phase"><h3>Phase 4: The Collective 🔭</h3><span>(Vision)</span><ul><li>Nomad DAO Formation</li><li>$NMD Governance Voting</li><li>DAO-Managed Treasury</li><li>Full Protocol Decentralization</li></ul></div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="tokenomics">
-            <div class="container">
-                <h2>The $NMD Token</h2>
-                <p>$NMD is not just a currency; it is the ink used to write history.</p>
-                <div class="tokenomics-layout">
-                    <div class="token-visual">
-                        <img src="token-visual.png" alt="$NMD Token Visual">
-                    </div>
-                    <div class="token-details-wrapper">
-                        <div class="token-info"><h3>Distribution</h3><ul><li><strong>40%</strong> - Community & Ecosystem</li><li><strong>30%</strong> - Liquidity Pool</li><li><strong>10%</strong> - Team Allocation</li><li><strong>10%</strong> - Founder Allocation</li><li><strong>10%</strong> - Treasury (Unlocked)</li></ul></div>
-                        <div class="token-info"><h3>Lock & Vesting Schedule</h3><ul><li><strong>Liquidity:</strong> LP tokens locked for 2 years.</li><li><strong>Community:</strong> 36-month linear unlock.</li><li><strong>Team:</strong> 6-month cliff, then 24-month linear vesting.</li><li><strong>Founder:</strong> 6-month cliff, then 24-month linear vesting.</li></ul></div>
-                    </div>
-                </div>
-                 <a href="https://bscscan.com/token/0xdF80ce5D83282Cf12C285620a01900FD434AdCC7" target="_blank" class="link-arrow" style="margin-top: 3rem; display: inline-block;">[ View Token Contract → ]</a>
-            </div>
-        </section>
-
-        <section id="token-details">
-            <div class="container">
-                <h2>Token Details</h2>
-                <div class="details-grid">
-                    <div class="detail-card"><div class="card-icon"><img src="icon-quill.png" alt="Utility Icon"></div><h3>Utility: The Ink of History</h3><p>$NMD is the sole medium for anchoring memories to the Ledger. Each transaction is a symbolic act of using 'ink' to make a permanent mark.</p></div>
-                    <div class="detail-card"><div class="card-icon"><img src="icon-governance.png" alt="Governance Icon"></div><h3>Governance: The Voice of the Collective</h3><p>In Phase 4, $NMD will grant holders the right to participate in the Nomad DAO to vote on the future of the protocol.</p></div>
-                    <div class="detail-card"><div class="card-icon"><img src="icon-hash.png" alt="Technical Icon"></div><h3>Technical Specs</h3><ul><li><strong>Name:</strong> Nomad</li><li><strong>Symbol:</strong> NMD</li><li><strong>Total Supply:</strong> 1,000,000,000</li><li><strong>Network:</strong> BNB Smart Chain</li><li><strong>Standard:</strong> BEP-20</li></ul></div>
-                </div>
-            </div>
-        </section>
-
         <section id="community">
             <div class="container">
                 <h2>We are not looking for investors. We are looking for explorers.</h2>
@@ -115,32 +71,7 @@
     <footer>
         <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
     </footer>
-
-    <script>
-        function prepareAnchorData() {
-            const lat = document.getElementById('latitude').value.trim();
-            const lon = document.getElementById('longitude').value.trim();
-            const msg = document.getElementById('message').value.trim();
-
-            if (lat && lon && msg) {
-                const data = `LAT:${lat};LON:${lon};MSG:${msg}`;
-                const dataContainer = document.getElementById('prepared-data');
-                dataContainer.textContent = data;
-                // Add a copy button
-                dataContainer.innerHTML += ' <button onclick="copyData()" class="copy-btn">Copy</button>';
-                document.getElementById('anchor-instructions').classList.remove('hidden');
-            } else {
-                alert('Please fill in all the fields.');
-            }
-        }
-        function copyData() {
-            const dataText = document.getElementById('prepared-data').childNodes[0].nodeValue;
-            navigator.clipboard.writeText(dataText).then(() => {
-                alert('Formatted data copied to clipboard!');
-            }, (err) => {
-                alert('Failed to copy data.');
-            });
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="dapp.js"></script>
 </body>
 </html>
