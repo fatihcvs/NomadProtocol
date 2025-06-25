@@ -103,3 +103,47 @@ section { padding: 4rem 0; }
 .entry-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-top: 1.5rem; }
 
 footer { text-align: center; padding: 4rem 2rem; color: var(--secondary-color); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
+/* --- Whitepaper Sayfası Stilleri --- */
+#whitepaper-content {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+}
+
+#whitepaper-content .container {
+    max-width: 800px;
+    text-align: left;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 3rem 4rem;
+}
+
+#whitepaper-content h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.paper-section {
+    margin-bottom: 2.5rem;
+}
+
+.paper-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.paper-section p {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.paper-section code {
+    background-color: #1a1a2e;
+    color: #ff79c6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
