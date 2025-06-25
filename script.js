@@ -1,19 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    if (typeof ethers === 'undefined' || typeof L === 'undefined') {
-        console.error("Ethers.js or Leaflet is not loaded.");
-        return;
-    }
+    if (typeof ethers === 'undefined') { return; }
     const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
     const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
     const eventSignature = 'MemoryAnchored(address,uint256,string)';
     const eventTopic = ethers.utils.id(eventSignature);
     const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${ledgerContractAddress}&topic0=${eventTopic}&apikey=${bscscanApiKey}`;
-
     var map = L.map('map').setView([45, 15], 2);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO'
     }).addTo(map);
-
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
