@@ -1,45 +1,16 @@
-document.addEventListener('DOMContentLoaded', async function() {
-    // --- KENDİ BSC API ANAHTARINI BURAYA YAPIŞTIR ---
-    const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
-    // ---------------------------------------------------
-
-    const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
-    const eventSignature = 'MemoryAnchored(address,uint256,string)';
-    const eventTopic = ethers.utils.id(eventSignature);
-
-    const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${ledgerContractAddress}&topic0=${eventTopic}&apikey=${bscscanApiKey}`;
-
+document.addEventListener('DOMContentLoaded', function() {
     var map = L.map('map').setView([45, 15], 2);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
     }).addTo(map);
-
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        if (data.status === "1") {
-            const events = data.result;
-            const iface = new ethers.utils.Interface(["event MemoryAnchored(address indexed user, uint256 timestamp, string data)"]);
-
-            events.forEach(log => {
-                const parsedLog = iface.parseLog(log);
-                const decodedMessage = parsedLog.args.data;
-
-                if (decodedMessage.includes('LAT:') && decodedMessage.includes('LON:') && decodedMessage.includes('MSG:')) {
-                    try {
-                        const lat = parseFloat(decodedMessage.split('LAT:')[1].split(';')[0]);
-                        const lon = parseFloat(decodedMessage.split('LON:')[1].split(';')[0]);
-                        const message = decodedMessage.split('MSG:')[1].trim();
-                        if (!isNaN(lat) && !isNaN(lon)) {
-                            const popupContent = `<b>Message:</b> ${message}<br><br><a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank">View Transaction</a>`;
-                            L.marker([lat, lon]).addTo(map).bindPopup(popupContent);
-                        }
-                    } catch (e) {}
-                }
-            });
+    const memories = [
+        { lat: 38.4192, lon: 27.1287, message: "Nomad Protocol v1.0 is complete. The journey begins.", txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547" },
+        { lat: 38.4192, lon: 27.1287, message: "The first memory anchored directly through the Nomad dApp interface. The portal is open.", txHash: "0x5d49f8b99f313781a3f463ff151f721cFB1bE448" }
+    ];
+    memories.forEach(memory => {
+        if (memory.lat && memory.lon) {
+            const popupContent = `<b>Message:</b> ${memory.message}<br><br><a href="https://bscscan.com/tx/${memory.txHash}" target="_blank">View Transaction</a>`;
+            L.marker([memory.lat, memory.lon]).addTo(map).bindPopup(popupContent);
         }
-    } catch (error) {
-        console.error("Could not fetch memories:", error);
-    }
+    });
 });
