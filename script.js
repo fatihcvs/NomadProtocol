@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             lat: 38.4192,
             lon: 27.1287,
-            message: "The Birth of Nomad.",
-            txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547" 
+            message: "Nomad Protocol v1.0 is complete. The journey begins.",
+            txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547"
         },
         {
             lat: 38.4192,
             lon: 27.1287,
-            message: "Nomad Protocol v1.0 is complete. The journey begins.",
-            txHash: "0x5d49f8b99f313781a3F463ff151f721cFB1bE448" // Bu senin en son başarılı işleminin hash'i olabilir, BscScan'den kontrol edilebilir.
+            message: "The first memory anchored directly through the Nomad dApp interface. The portal is open.",
+            txHash: "0x5d49f8b99f313781a3f463ff151f721cFB1bE448" 
         }
     ];
 
