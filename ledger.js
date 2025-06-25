@@ -1,13 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     const ledgerContainer = document.getElementById('ledger-entries');
     ledgerContainer.innerHTML = '';
+
+    // ANILARIMIZI MANUEL OLARAK BURAYA EKLİYORUZ
     const memories = [
-        { user: "0x68F7F7f7b7D258a1B9fB8183151c888B27b7B9fB8", timestamp: 1750911952000, message: "Nomad Protocol v1.0 is complete. The journey begins.", txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547" }
+        {
+            user: "0x68F7...fB8", 
+            timestamp: 1750914352000, // En son işlem (daha yeni tarih)
+            message: "The first memory anchored directly through the Nomad dApp interface. The portal is open.",
+            txHash: "0x5d49f8b99f313781a3F463ff151f721cFB1bE448" // Değiştirilebilir
+        },
+        {
+            user: "0x68F7...fB8",
+            timestamp: 1750911952000, // İlk işlem (daha eski tarih)
+            message: "Nomad Protocol v1.0 is complete. The journey begins.",
+            txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547"
+        }
     ];
+
     if (memories.length === 0) {
         ledgerContainer.innerHTML = '<p>No memories have been anchored yet.</p>';
         return;
     }
+    
+    // Zaten en yeniden eskiye sıralı olduğu için reverse'e gerek yok
     memories.forEach(memory => {
         const entryDiv = document.createElement('div');
         entryDiv.className = 'ledger-entry';
