@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    if (typeof ethers === 'undefined') {
-        console.error("Ethers.js is not loaded.");
-        return;
-    }
+    if (typeof ethers === 'undefined') { return; }
     const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
     const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
     const eventSignature = 'MemoryAnchored(address,uint256,string)';
