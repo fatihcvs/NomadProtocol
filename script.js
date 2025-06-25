@@ -1,60 +1,36 @@
-/* --- Genel Stiller --- */
-:root { --primary-color: #ffffff; --secondary-color: #a9a9b3; --background-color: #0b0b1e; --accent-color: #4f46e5; }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: var(--background-color); color: var(--primary-color); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-.container { max-width: 960px; margin: auto; padding: 4rem 2rem; text-align: center; }
-h1, h2, h3 { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height: 1.2; }
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-p { color: var(--secondary-color); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-@keyframes move-stars { from {transform: translateY(0px);} to {transform: translateY(-2000px);} }
-#starfield { position: fixed; width: 100%; height: 300%; top: 0; left: 0; z-index: -1; background-image: radial-gradient(4px 4px at 200px 300px, #eee, rgba(0,0,0,0)), radial-gradient(4px 4px at 300px 700px, #fff, rgba(0,0,0,0)), radial-gradient(3px 3px at 400px 500px, #ddd, rgba(0,0,0,0)), radial-gradient(3px 3px at 500px 200px, #fff, rgba(0,0,0,0)), radial-gradient(4px 4px at 150px 900px, #fff, rgba(0,0,0,0)), radial-gradient(3px 3px at 50px 50px, #eee, rgba(0,0,0,0)); animation: move-stars 200s linear infinite; }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; position: absolute; top: 0; left: 0; width: 100%; }
-nav .logo { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; font-weight: 700; }
-nav ul { list-style: none; display: flex; }
-nav ul li { margin-left: 2rem; }
-nav a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
-#hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; }
-#hero h1 { margin-bottom: 1rem; }
-.cta-buttons { margin-top: 1rem; }
-.btn { padding: 0.8rem 1.8rem; border: 2px solid var(--secondary-color); border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 0.5rem; transition: all 0.3s ease; }
-.btn-primary { background-color: var(--primary-color); color: var(--background-color); border-color: var(--primary-color); }
-.btn-primary:hover { background-color: transparent; color: var(--primary-color); }
-.btn-secondary { color: var(--secondary-color); }
-.btn-secondary:hover { background-color: var(--secondary-color); color: var(--background-color); }
-.link-arrow { color: var(--accent-color); font-weight: 600; text-decoration: none; }
-#proof .container { display: flex; align-items: center; justify-content: center; gap: 3rem; text-align: left; }
-.proof-text, .proof-image { flex: 1; }
-.proof-image img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
-#how-it-works, #tokenomics, #anchor-ui { background-color: #060612; }
-.guide-steps { text-align: left; margin-top: 3rem; max-width: 768px; margin-left: auto; margin-right: auto; }
-.guide-step { background-color: var(--background-color); padding: 1.5rem 2rem; border-radius: 10px; margin-bottom: 2rem; border: 1px solid #1a1a2e; }
-.guide-step h3 { margin-bottom: 1rem; color: var(--accent-color); }
-.guide-step p { max-width: none; margin-left: 0; margin-right: 0; color: var(--secondary-color); }
-.guide-step code { background-color: #1a1a2e; color: #ff79c6; padding: 0.2rem 0.5rem; border-radius: 5px; font-family: 'Courier New', Courier, monospace; }
-.tokenomics-details { display: flex; justify-content: space-around; text-align: left; margin-top: 3rem; flex-wrap: wrap; gap: 2rem; }
-.token-info { flex-basis: 45%; }
-.token-info h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent-color); }
-.token-info ul { list-style: none; }
-.token-info ul li { color: var(--secondary-color); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
-.token-info ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; font-size: 1.5rem; line-height: 1; }
-.token-info a { margin-top: 1.5rem; display: inline-block; }
-.form-container { max-width: 600px; margin: 2rem auto 0 auto; background: var(--background-color); padding: 2rem; border-radius: 15px; border: 1px solid #1a1a2e; display: flex; flex-wrap: wrap; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; flex: 1; }
-.form-group.full-width { flex-basis: 100%; }
-.form-container label { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--secondary-color); text-align: left; }
-.form-container input, .form-container textarea { background-color: #060612; border: 1px solid #2a2a3e; color: var(--primary-color); padding: 0.8rem; border-radius: 5px; font-size: 1rem; font-family: 'Inter', sans-serif; }
-.form-container textarea { resize: vertical; }
-.form-container button { width: 100%; padding: 1rem; border: none; border-radius: 5px; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
-#getLocationBtn { background: var(--secondary-color); color: var(--background-color); flex-basis: 100%; }
-#anchorBtn { background: var(--accent-color); color: var(--primary-color); margin-top: 1rem; }
-.ritual-note { font-size: 0.8rem; font-style: italic; flex-basis: 100%; text-align: center; color: var(--secondary-color); }
-#statusMessage { flex-basis: 100%; margin-top: 1rem; text-align: center; font-weight: 600; min-height: 24px; }
-#explorer-section, #ledger-section, #manifesto-content { padding-top: 120px; }
-#map { width: 100%; height: 70vh; border-radius: 15px; margin-top: 2rem; background-color: #1a1a2e; }
-#ledger-entries { margin-top: 3rem; max-width: 768px; margin-left: auto; margin-right: auto; }
-.ledger-entry { background-color: #060612; border: 1px solid #1a1a2e; border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 2rem; }
-.entry-message { font-size: 1.2rem; font-style: italic; color: var(--primary-color); margin-bottom: 1.5rem; line-height: 1.7; }
-.entry-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: var(--secondary-color); }
-.entry-meta a { color: var(--accent-color); text-decoration: none; font-weight: 600; }
-footer { text-align: center; padding: 2rem; color: var(--secondary-color); font-size: 0.9rem; }
+document.addEventListener('DOMContentLoaded', async function() {
+    const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
+    const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
+    const eventSignature = 'MemoryAnchored(address,uint256,string)';
+    const eventTopic = ethers.utils.id(eventSignature);
+    const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${ledgerContractAddress}&topic0=${eventTopic}&apikey=${bscscanApiKey}`;
+
+    var map = L.map('map').setView([45, 15], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO'
+    }).addTo(map);
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data.status === "1") {
+            const events = data.result;
+            const iface = new ethers.utils.Interface(["event MemoryAnchored(address indexed user, uint256 timestamp, string data)"]);
+            events.forEach(log => {
+                const parsedLog = iface.parseLog(log);
+                const decodedMessage = parsedLog.args.data;
+                if (decodedMessage.includes('LAT:') && decodedMessage.includes('LON:') && decodedMessage.includes('MSG:')) {
+                    try {
+                        const lat = parseFloat(decodedMessage.split('LAT:')[1].split(';')[0]);
+                        const lon = parseFloat(decodedMessage.split('LON:')[1].split(';')[0]);
+                        const message = decodedMessage.split('MSG:')[1].trim();
+                        if (!isNaN(lat) && !isNaN(lon)) {
+                            const popupContent = `<b>Message:</b> ${message}<br><br><a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank">View Transaction</a>`;
+                            L.marker([lat, lon]).addTo(map).bindPopup(popupContent);
+                        }
+                    } catch (e) {}
+                }
+            });
+        }
+    } catch (error) {}
+});
