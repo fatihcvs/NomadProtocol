@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function() {
+    if (typeof ethers === 'undefined') {
+        console.error("Ethers.js is not loaded.");
+        return;
+    }
     const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
     const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
     const eventSignature = 'MemoryAnchored(address,uint256,string)';
@@ -6,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${ledgerContractAddress}&topic0=${eventTopic}&apikey=${bscscanApiKey}`;
     const ledgerContainer = document.getElementById('ledger-entries');
     ledgerContainer.innerHTML = '<p>Loading memories from the blockchain...</p>';
-
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
