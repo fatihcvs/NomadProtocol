@@ -18,7 +18,7 @@
                 <li><a href="manifesto.html">Manifesto</a></li>
                 <li><a href="explorer.html">Explorer</a></li>
                 <li><a href="ledger.html">Ledger</a></li>
-                <li><a href="index.html#community">Community</a></li>
+                <li><a href="#community">Community</a></li>
             </ul>
         </nav>
     </header>
@@ -43,10 +43,34 @@
                 </div>
             </div>
         </section>
-        <section id="how-it-works">
+        <section id="anchor-ui">
             <div class="container">
-                <h2>The Anchoring Ritual</h2>
-                <p>To etch your memory onto the blockchain, you can interact directly with our verified Ledger Contract on BscScan.</p>
+                <h2>Anchor Your Own Memory</h2>
+                <p>Become a part of the collective journal. Use the form below to permanently etch your moment onto the blockchain.</p>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="latInput">Latitude</label>
+                        <input type="text" id="latInput" placeholder="e.g., 38.4192">
+                    </div>
+                    <div class="form-group">
+                        <label for="lonInput">Longitude</label>
+                        <input type="text" id="lonInput" placeholder="e.g., 27.1287">
+                    </div>
+                    <button id="getLocationBtn">Get My Location</button>
+                    <div class="form-group full-width">
+                        <label for="msgInput">Your Message (Max 140 characters)</label>
+                        <textarea id="msgInput" rows="3" maxlength="140" placeholder="e.g., The journey begins."></textarea>
+                    </div>
+                    <p class="ritual-note">Remember the ritual: For the full experience, first send a symbolic 1 $NMD to the burn address as your "ink".</p>
+                    <button id="anchorBtn">Anchor Memory</button>
+                    <div id="statusMessage"></div>
+                </div>
+            </div>
+        </section>
+        <section id="how-it-works">
+             <div class="container">
+                <h2>The Anchoring Ritual (Advanced)</h2>
+                <p>Alternatively, you can interact directly with our verified Ledger Contract on BscScan.</p>
                 <div class="guide-steps">
                     <div class="guide-step">
                         <h3>1. Prepare Your Memory String</h3>
@@ -69,25 +93,8 @@
                 <h2>Tokenomics & Vesting</h2>
                 <p>Our tokenomics are designed for transparency, long-term growth, and to serve the protocol's core philosophy. The total supply is fixed at 1 Billion $NMD.</p>
                 <div class="tokenomics-details">
-                    <div class="token-info">
-                        <h3>Distribution</h3>
-                        <ul>
-                            <li><strong>40%</strong> - Community & Ecosystem</li>
-                            <li><strong>30%</strong> - Liquidity Pool</li>
-                            <li><strong>10%</strong> - Team Allocation</li>
-                            <li><strong>10%</strong> - Founder Allocation</li>
-                            <li><strong>10%</strong> - Treasury (Unlocked)</li>
-                        </ul>
-                    </div>
-                    <div class="token-info">
-                        <h3>Lock & Vesting Schedule</h3>
-                        <ul>
-                            <li><strong>Liquidity:</strong> LP tokens locked for 2 years.</li>
-                            <li><strong>Community:</strong> 36-month linear unlock.</li>
-                            <li><strong>Team:</strong> 6-month cliff, then 24-month linear vesting.</li>
-                            <li><strong>Founder:</strong> 6-month cliff, then 24-month linear vesting.</li>
-                        </ul>
-                    </div>
+                    <div class="token-info"><h3>Distribution</h3><ul><li><strong>40%</strong> - Community & Ecosystem</li><li><strong>30%</strong> - Liquidity Pool</li><li><strong>10%</strong> - Team Allocation</li><li><strong>10%</strong> - Founder Allocation</li><li><strong>10%</strong> - Treasury (Unlocked)</li></ul></div>
+                    <div class="token-info"><h3>Lock & Vesting Schedule</h3><ul><li><strong>Liquidity:</strong> LP tokens locked for 2 years.</li><li><strong>Community:</strong> 36-month linear unlock.</li><li><strong>Team:</strong> 6-month cliff, then 24-month linear vesting.</li><li><strong>Founder:</strong> 6-month cliff, then 24-month linear vesting.</li></ul></div>
                 </div>
                 <a href="https://bscscan.com/token/0xdF80ce5D83282Cf12C285620a01900FD434AdCC7" target="_blank" class="link-arrow" style="margin-top: 2rem;">[ View Token Contract → ]</a>
             </div>
@@ -106,5 +113,7 @@
     <footer>
         <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="dapp.js"></script>
 </body>
 </html>
