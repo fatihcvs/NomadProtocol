@@ -8,7 +8,79 @@ v<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomad Protocol - Anchor Your Moments</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
+<body>
+    <div id="starfield"></div>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Nomad</a></div>
+            <ul>
+                <li><a href="whitepaper.html">Whitepaper</a></li>
+                <li><a href="explorer.html">Explorer</a></li>
+                <li><a href="ledger.html">Ledger</a></li>
+                <li><a href="index.html#community">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <h1>Anchor Your Moments to Eternity.</h1>
+            <p>Nomad is a decentralized protocol for transforming fleeting memories into immutable on-chain records. This is the permanent journal of humanity.</p>
+            <div class="cta-buttons">
+                <a href="whitepaper.html" class="btn btn-primary">[ Read the Whitepaper ]</a>
+                <a href="https://t.me/NomadProtocol" target="_blank" class="btn btn-secondary">[ Join the Journey ]</a>
+            </div>
+        </section>
+        <section id="anchor-ui">
+            <div class="container">
+                <h2>Anchor Your Own Memory</h2>
+                <p>Become a part of the collective journal. The ritual costs 1 $NMD as ink. Use the form below to permanently etch your moment onto the blockchain.</p>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="latInput">Latitude</label>
+                        <input type="text" id="latInput" placeholder="e.g., 39.93">
+                    </div>
+                    <div class="form-group">
+                        <label for="lonInput">Longitude</label>
+                        <input type="text" id="lonInput" placeholder="e.g., 32.85">
+                    </div>
+                    <button id="getLocationBtn">Get My Location</button>
+                    <div class="form-group full-width">
+                        <label for="msgInput">Your Message (Max 140 characters)</label>
+                        <textarea id="msgInput" rows="3" maxlength="140" placeholder="e.g., The journey begins."></textarea>
+                    </div>
+                    <p class="ritual-note">The Anchoring Ritual is a two-step process: spending 1 $NMD as 'ink', then inscribing your message.</p>
+                    <button id="anchorBtn">Begin Anchoring Ritual (1 NMD + Gas)</button>
+                    <div id="statusMessage"></div>
+                </div>
+            </div>
+        </section>
+        <section id="community">
+            <div class="container">
+                <h2>We are not looking for investors. We are looking for explorers.</h2>
+                <p>Our community is a hub for thinkers, wanderers, and poets. Join the conversation and help us map the world's memories.</p>
+                <div class="cta-buttons">
+                    <a href="https://twitter.com/protocolnomad" target="_blank" class="btn btn-secondary">[ Follow on Twitter ]</a>
+                    <a href="https://t.me/NomadProtocol" target="_blank" class="btn btn-secondary">[ Chat on Telegram ]</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="dapp.js"></script>
+</body>
+</html>
 <body>
     <div id="starfield"></div>
     <header>
