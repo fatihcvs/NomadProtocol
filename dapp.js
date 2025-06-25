@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const anchorTx = await ledgerContract.anchor(formattedMessage);
             statusMessage.textContent = 'Transaction sent! Waiting for confirmation...';
             await anchorTx.wait();
-            statusMessage.innerHTML = `Success! Your memory is anchored forever. <a href="https://bscscan.com/tx/${anchorTx.hash}" target="_blank" class="link-arrow">View Transaction</a>`;
+            statusMessage.innerHTML = `Success! Your memory is anchored. It will appear on the Explorer/Ledger shortly. <a href="https://bscscan.com/tx/${anchorTx.hash}" target="_blank" class="link-arrow">View Tx</a>`;
             latInput.value = '';
             lonInput.value = '';
             msgInput.value = '';
