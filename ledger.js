@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const memories = [
         {
             user: "0x68F7...fB8", 
-            timestamp: 1750914352000, // En son işlem (daha yeni tarih)
+            timestamp: 1750999552000, 
             message: "The first memory anchored directly through the Nomad dApp interface. The portal is open.",
-            txHash: "0x5d49f8b99f313781a3F463ff151f721cFB1bE448" // Değiştirilebilir
+            txHash: "0x5d49f8b99f313781a3F463ff151f721cFB1bE448"
         },
         {
             user: "0x68F7...fB8",
-            timestamp: 1750911952000, // İlk işlem (daha eski tarih)
+            timestamp: 1750911952000,
             message: "Nomad Protocol v1.0 is complete. The journey begins.",
             txHash: "0x98a9d18e583e74bcf6b2b52479e9334460f38d39371e7123955a024227f4d547"
         }
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    // Zaten en yeniden eskiye sıralı olduğu için reverse'e gerek yok
     memories.forEach(memory => {
         const entryDiv = document.createElement('div');
         entryDiv.className = 'ledger-entry';
