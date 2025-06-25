@@ -7,19 +7,13 @@ h1, h2, h3 { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height:
 h1 { font-size: 3.5rem; }
 h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 p { color: var(--secondary-color); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-/* --- Hareketli Yıldız Arka Planı --- */
 @keyframes move-stars { from {transform: translateY(0px);} to {transform: translateY(-2000px);} }
 #starfield { position: fixed; width: 100%; height: 300%; top: 0; left: 0; z-index: -1; background-image: radial-gradient(4px 4px at 200px 300px, #eee, rgba(0,0,0,0)), radial-gradient(4px 4px at 300px 700px, #fff, rgba(0,0,0,0)), radial-gradient(3px 3px at 400px 500px, #ddd, rgba(0,0,0,0)), radial-gradient(3px 3px at 500px 200px, #fff, rgba(0,0,0,0)), radial-gradient(4px 4px at 150px 900px, #fff, rgba(0,0,0,0)), radial-gradient(3px 3px at 50px 50px, #eee, rgba(0,0,0,0)); animation: move-stars 200s linear infinite; }
-
-/* --- Navigasyon --- */
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; position: absolute; top: 0; left: 0; width: 100%; }
 nav .logo { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; font-weight: 700; }
 nav ul { list-style: none; display: flex; }
 nav ul li { margin-left: 2rem; }
 nav a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
-
-/* --- Bölüm Stilleri --- */
 #hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; }
 #hero h1 { margin-bottom: 1rem; }
 .cta-buttons { margin-top: 1rem; }
