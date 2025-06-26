@@ -1,21 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Leaflet Test</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <style>
-    #map { width:100%; height:600px; }
-  </style>
-</head>
-<body>
-  <div id="map"></div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    var map = L.map('map').setView([45, 15], 2);
+document.addEventListener('DOMContentLoaded', async function() {
+    if (typeof L === 'undefined' || typeof ethers === 'undefined') {
+        document.getElementById('error-message').textContent = "Leaflet or Ethers library not loaded!";
+        return;
+    }
+
+    // Haritayı başlat
+    var map = L.map('map').setView([30, 10], 2);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
     }).addTo(map);
-  </script>
-</body>
-</html>
+
+    // Ayarları doldur
+    const BSCSCAN_API_KEY = 'YOUR_BSCSCAN_API_KEY'; // <-- BURAYA KENDİ ANAHTARINI KOY
+    const CONTRACT_ADDRESS = '0xd34f...'; // <-- BURAYA KENDİ KONTRAT ADRESİNİ KOY
+    const EVENT_SIGNATURE = 'MemoryAnchored(address,uint256,string)';
+    const topic0 = ethers.utils.id(EVENT_SIGNATURE);
+
+    const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${CONTRACT_ADDRESS}&topic0=${topic0}&apikey=${BSCSCAN_API_KEY}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data.status !== "1" || !Array.isArray(data.result)) {
+            document.getElementById('error-message').textContent = "No logs found or API error: " + (data.message || "Unknown error");
+            return;
+        }
+
+        // Event ABI
+        const abi = [
+            "event MemoryAnchored(address indexed user, uint256 timestamp, string data)"
+        ];
+        const iface = new ethers.utils.Interface(abi);
+
+        let found = false;
+
+        data.result.forEach(log => {
+            let event;
+            try {
+                event = iface.parseLog(log);
+            } catch (err) {
+                // logu atla
+                return;
+            }
+
+            // data: LAT:LON:MSG
+            const [lat, lon, ...msgParts] = event.args.data.split(':');
+            const message = msgParts.join(':');
+            if (!lat || !lon || !message) return;
+
+            const latNum = parseFloat(lat);
+            const lonNum = parseFloat(lon);
+            if (isNaN(latNum) || isNaN(lonNum)) return;
+
+            const popupContent = `<b>Message:</b> ${message}<br>
+                <b>User:</b> ${event.args.user}<br>
+                <b>Time:</b> ${new Date(event.args.timestamp.toNumber() * 1000).toLocaleString()}<br>
+                <a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank">View Transaction</a>`;
+
+            L.marker([latNum, lonNum]).addTo(map).bindPopup(popupContent);
+            found = true;
+        });
+
+        if (!found) {
+            document.getElementById('error-message').textContent = "No valid memories found on chain.";
+        }
+
+    } catch (e) {
+        document.getElementById('error-message').textContent = "Error fetching logs: " + e;
+    }
+});
