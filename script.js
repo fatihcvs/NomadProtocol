@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // Kütüphanelerin yüklenip yüklenmediğini kontrol etmek için bir güvenlik ağı
-    if (typeof L === 'undefined') {
-        console.error("Leaflet library (L) is not defined. Check the script tag in explorer.html.");
+    // Kütüphanelerin yüklenip yüklenmediğini kontrol etmek için güvenlik ağı
+    if (typeof L === 'undefined' || typeof ethers === 'undefined') {
+        console.error("Leaflet or Ethers.js library is not loaded. Check script tags in explorer.html.");
         const mapDiv = document.getElementById('map');
         if(mapDiv) {
-            mapDiv.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 50px;">Map library could not be loaded. Please refresh or check your connection.</p>';
+            mapDiv.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 50px;">Map library could not be loaded. Please check your connection and refresh.</p>';
         }
-        return;
-    }
-    if (typeof ethers === 'undefined') {
-        console.error("Ethers.js library is not loaded. Check the script tag in explorer.html.");
         return;
     }
 
