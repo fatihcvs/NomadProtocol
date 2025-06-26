@@ -1,34 +1,12 @@
-/* --- TASARIM v2.1 --- */
-/* --- Genel Stiller ve Arka Plan --- */
-:root {
-    --primary-color: #f0f0f0;
-    --secondary-color: #a9a9b3;
-    --background-color: #0d0c22;
-    --accent-color: #9333ea; /* Canlı Mor */
-    --glass-bg: rgba(26, 26, 46, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --form-bg: rgba(30, 30, 50, 0.6); /* Hafif Koyu Form Arka Planı */
-}
-
+/* --- TASARIM v2.0 --- */
+:root { --primary-color: #f0f0f0; --secondary-color: #a9a9b3; --background-color: #0d0c22; --accent-color: #9333ea; --glass-bg: rgba(26, 26, 46, 0.5); --glass-border: rgba(255, 255, 255, 0.1); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: var(--background-color);
-    background-image: radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.15), transparent 30%), radial-gradient(circle at 80% 90%, rgba(79, 70, 229, 0.15), transparent 40%);
-    color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
+body { background-color: var(--background-color); background-image: radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.15), transparent 30%), radial-gradient(circle at 80% 90%, rgba(79, 70, 229, 0.15), transparent 40%); color: var(--primary-color); font-family: 'Inter', sans-serif; line-height: 1.7; overflow-x: hidden; }
 .container { max-width: 1100px; margin: auto; padding: 6rem 2rem; text-align: center; }
-
 h1, h2, h3 { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height: 1.2; color: #ffffff; }
 h1 { font-size: 4rem; text-shadow: 0 0 20px rgba(147, 51, 234, 0.5); }
 h2 { font-size: 2.8rem; margin-bottom: 1.5rem; }
 p { color: var(--secondary-color); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-/* --- Navigasyon (Glassmorphism) --- */
 header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(13, 12, 34, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); }
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; max-width: 1400px; margin: auto; }
 nav .logo { font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; font-weight: 700; }
@@ -36,10 +14,7 @@ nav ul { list-style: none; display: flex; }
 nav ul li { margin-left: 2.5rem; }
 nav a { color: var(--primary-color); text-decoration: none; font-weight: 600; transition: color 0.3s; }
 nav a:hover { color: var(--accent-color); }
-
 main { padding-top: 80px; }
-
-/* --- Genel Bölüm ve Buton Stilleri --- */
 section { padding: 4rem 0; }
 .btn { padding: 0.8rem 1.8rem; border: 2px solid var(--accent-color); border-radius: 50px; text-decoration: none; font-weight: 600; margin: 0 0.5rem; transition: all 0.3s ease; }
 .btn-primary { background-color: var(--accent-color); color: var(--primary-color); }
@@ -47,32 +22,15 @@ section { padding: 4rem 0; }
 .btn-secondary { color: var(--secondary-color); border-color: var(--secondary-color); }
 .btn-secondary:hover { background-color: var(--secondary-color); color: var(--background-color); border-color: var(--secondary-color); box-shadow: none; }
 .link-arrow { color: var(--accent-color); font-weight: 600; text-decoration: none; }
-
-/* --- Proof Bölümü --- */
 #proof { border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
 #proof .container { display: flex; align-items: center; justify-content: center; gap: 4rem; text-align: left; flex-wrap: wrap; }
-.proof-text, .proof-image { flex: 1; min-width: 300px; }
-.proof-image img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
-
-/* --- Rehber ve Diğer Bölümler (Glassmorphism Kartlar) --- */
+.proof-text, .proof-image, .token-visual, .token-details-wrapper { flex: 1; min-width: 300px; }
+.proof-image img, .token-visual img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+.token-visual img { box-shadow: 0 0 40px rgba(147, 51, 234, 0.4); }
+.token-details-wrapper { display: flex; flex-direction: column; gap: 2rem; }
 #how-it-works, #tokenomics, #roadmap, #token-details, #community, #anchor-ui { background: transparent; border-top: 1px solid var(--glass-border); }
 .guide-step, .roadmap-phase, .detail-card, .token-info, .anchor-form, .ledger-entry { background: var(--glass-bg); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left;}
 .guide-step:hover, .roadmap-phase:hover, .detail-card:hover, .token-info:hover, .anchor-form:hover, .ledger-entry:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-/* --- Geliştirilmiş Anchor UI Stilleri --- */
-#anchor-ui { padding: 5rem 0; }
-.anchor-form { padding: 2.5rem; max-width: 600px; margin: 2rem auto; }
-.input-group-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-.input-group { display: flex; flex-direction: column; width: 100%; }
-.anchor-form label { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--secondary-color); text-align: left; }
-.anchor-form input, .anchor-form textarea { background-color: var(--background-color); border: 1px solid var(--glass-border); color: var(--primary-color); padding: 0.8rem 1rem; border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color 0.3s, box-shadow 0.3s; }
-.anchor-form input:focus, .anchor-form textarea:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 10px rgba(147, 51, 234, 0.3); }
-.anchor-form textarea { resize: vertical; }
-.location-btn { background: var(--secondary-color); color: var(--background-color); width: 100%; padding: 0.8rem; border: none; border-radius: 8px; font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; margin-bottom: 1.5rem; }
-.location-btn:hover { background-color: var(--primary-color); }
-.anchor-button { width: 100%; }
-.ritual-note { font-size: 0.8rem; font-style: italic; text-align: center; color: var(--secondary-color); margin-top: 1rem; width: 100%; }
-#statusMessage { width: 100%; margin-top: 1.5rem; text-align: center; font-weight: 600; min-height: 24px; color: var(--accent-color); }
-
-/* ... Geri kalan tüm stil kodları ... */
+#anchor-ui, #whitepaper-content, #explorer-section, #ledger-section { padding-top: 8rem; }
+.anchor-form { max-width: 600px; margin: 2rem auto; }
 footer { text-align: center; padding: 4rem 2rem; color: var(--secondary-color); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
