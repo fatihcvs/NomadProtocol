@@ -1,37 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ledger - Nomad Protocol</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Nomad</a></div>
-            <ul>
-                <li><a href="whitepaper.html">Whitepaper</a></li>
-                <li><a href="explorer.html">Explorer</a></li>
-                <li><a href="ledger.html">Ledger</a></li>
-                <li><a href="index.html#community">Community</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="ledger-section">
-            <div class="container">
-                <h2>The Ledger</h2>
-                <p>Every memory anchored to the blockchain, displayed as an immutable entry in our collective journal.</p>
-                <div id="ledger-entries"></div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
-    <script src="ledger.js"></script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', async function() {
+    if (typeof ethers === 'undefined') return;
+    const bscscanApiKey = 'YMWFRRRGXZFBF47SMRCQFMMDD9E9TYTSWX';
+    const ledgerContractAddress = '0xd34f98A99F313781a3F463ff151f721cFB1bE448';
+    const eventTopic = ethers.utils.id('MemoryAnchored(address,uint256,string)');
+    const apiUrl = `https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=latest&address=${ledgerContractAddress}&topic0=${eventTopic}&apikey=${bscscanApiKey}`;
+    const ledgerContainer = document.getElementById('ledger-entries');
+    ledgerContainer.innerHTML = '<p>Loading memories from the blockchain...</p>';
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        ledgerContainer.innerHTML = ''; 
+        if (data.status === "1" && data.result.length > 0) {
+            const iface = new ethers.utils.Interface(["event MemoryAnchored(address indexed user, uint256 timestamp, string data)"]);
+            data.result.reverse().forEach(log => {
+                const parsedLog = iface.parseLog(log);
+                const message = parsedLog.args.data.split('MSG:')[1];
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'ledger-entry';
+                const transactionDate = new Date(parseInt(parsedLog.args.timestamp) * 1000).toLocaleString();
+                entryDiv.innerHTML = `<p class="entry-message">"${message}"</p><div class="entry-meta"><span>Anchored by: ${parsedLog.args.user.substring(0,6)}...</span><span>On: ${transactionDate}</span><a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank">View on BscScan</a></div>`;
+                ledgerContainer.appendChild(entryDiv);
+            });
+        } else {
+            ledgerContainer.innerHTML = '<p>No memories have been anchored yet.</p>';
+        }
+    } catch (error) {
+        ledgerContainer.innerHTML = `<p style="color: #ff6b6b;">Could not load memories.</p>`;
+    }
+});
