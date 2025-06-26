@@ -13,6 +13,7 @@
             <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Nomad</a></div>
             <ul>
                 <li><a href="whitepaper.html">Whitepaper</a></li>
+                <li><a href="explorer.html">Explorer</a></li>
                 <li><a href="ledger.html">Ledger</a></li>
                 <li><a href="index.html#community">Community</a></li>
             </ul>
@@ -22,7 +23,7 @@
         <section id="ledger-section">
             <div class="container">
                 <h2>The Ledger</h2>
-                <p>Every memory anchored to the blockchain, displayed as an immutable entry in our collective journal. The story of our journey, written in chronological order.</p>
+                <p>Every memory anchored to the blockchain, displayed as an immutable entry in our collective journal.</p>
                 <div id="ledger-entries"></div>
             </div>
         </section>
