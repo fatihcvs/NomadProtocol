@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nomad Protocol - Anchor Your Moments</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,14 +30,21 @@
                 <a href="https://t.me/NomadProtocol" target="_blank" class="btn btn-secondary">[ Join the Journey ]</a>
             </div>
         </section>
+
         <section id="anchor-ui">
             <div class="container">
                 <h2>Anchor Your Own Memory</h2>
-                <p>Use the form below to become a part of the collective journal. The ritual costs 1 $NMD as ink.</p>
+                <p>Become a part of the collective journal. Use the form below to permanently etch your moment onto the blockchain.</p>
                 <div class="anchor-form">
                     <div class="input-group-row">
-                        <div class="input-group"><label for="latitude">Latitude</label><input type="text" id="latitude" placeholder="e.g., 41.01"></div>
-                        <div class="input-group"><label for="longitude">Longitude</label><input type="text" id="longitude" placeholder="e.g., 28.98"></div>
+                        <div class="input-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="text" id="latitude" placeholder="e.g., 41.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="text" id="longitude" placeholder="e.g., 28.98">
+                        </div>
                     </div>
                     <button id="getLocationBtn" class="location-btn">Get My Current Location</button>
                     <div class="input-group">
@@ -48,8 +57,9 @@
                 </div>
             </div>
         </section>
+
         <section id="roadmap">
-            <div class="container">
+             <div class="container">
                 <h2>Our Journey (Roadmap)</h2>
                 <div class="roadmap-container">
                     <div class="roadmap-phase"><h3>Phase 1: The Spark ✅</h3><span>(Completed)</span><ul><li>Concept & Manifesto</li><li>Smart Contract Deployment</li><li>v1.0 Website Launch</li><li>First Memories Anchored</li></ul></div>
@@ -59,8 +69,9 @@
                 </div>
             </div>
         </section>
+
         <section id="tokenomics">
-            <div class="container">
+             <div class="container">
                 <h2>The $NMD Token</h2>
                 <p>$NMD is not just a currency; it is the ink used to write history.</p>
                 <div class="tokenomics-layout">
@@ -73,6 +84,7 @@
                  <a href="https://bscscan.com/token/0xdF80ce5D83282Cf12C285620a01900FD434AdCC7" target="_blank" class="link-arrow" style="margin-top: 3rem; display: inline-block;">[ View Token Contract → ]</a>
             </div>
         </section>
+
         <section id="community">
             <div class="container">
                 <h2>We are not looking for investors. We are looking for explorers.</h2>
@@ -86,6 +98,7 @@
     <footer>
         <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
     <script src="dapp.js"></script>
 </body>
