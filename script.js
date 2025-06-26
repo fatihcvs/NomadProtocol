@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // Kütüphanelerin yüklenip yüklenmediğini kontrol et
-    if (typeof L === 'undefined' || typeof ethers === 'undefined') {
-        console.error("Leaflet or Ethers.js library is not loaded.");
-        // Harita yüklenemediği için kullanıcıya bir mesaj gösterebiliriz.
+    // Kütüphanelerin yüklenip yüklenmediğini kontrol etmek için bir güvenlik ağı
+    if (typeof L === 'undefined') {
+        console.error("Leaflet library (L) is not defined. Check the script tag in explorer.html.");
         const mapDiv = document.getElementById('map');
         if(mapDiv) {
-            mapDiv.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 50px;">Map library could not be loaded. Please check your connection and refresh.</p>';
+            mapDiv.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 50px;">Map library could not be loaded. Please refresh or check your connection.</p>';
         }
+        return;
+    }
+    if (typeof ethers === 'undefined') {
+        console.error("Ethers.js library is not loaded. Check the script tag in explorer.html.");
         return;
     }
 
@@ -34,9 +37,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                     const decodedMessage = parsedLog.args.data;
 
                     if (decodedMessage.includes('LAT:') && decodedMessage.includes('LON:') && decodedMessage.includes('MSG:')) {
-                        const lat = parseFloat(decodedMessage.split('LAT:')[1].split(';')[0]);
-                        const lon = parseFloat(decodedMessage.split('LON:')[1].split(';')[0]);
+                        const latString = decodedMessage.split('LAT:')[1].split(';')[0];
+                        const lonString = decodedMessage.split('LON:')[1].split(';')[0];
                         const message = decodedMessage.split('MSG:')[1].trim();
+
+                        const lat = parseFloat(latString);
+                        const lon = parseFloat(lonString);
 
                         if (!isNaN(lat) && !isNaN(lon)) {
                             const popupContent = `<b>Message:</b> ${message}<br><br><a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank" class="link-arrow">View Transaction</a>`;
@@ -44,11 +50,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         }
                     }
                 } catch(e) {
-                    console.error("Could not parse a specific log:", log, e);
+                    console.error("Could not parse a specific log for the map:", log, e);
                 }
             });
-        } else {
-            console.log("No memories found or API error:", data.message);
         }
     } catch (error) {
         console.error("Could not fetch memories for the map:", error);
