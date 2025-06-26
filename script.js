@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    // Kütüphanelerin yüklenip yüklenmediğini kontrol etmek için güvenlik ağı
-    if (typeof L === 'undefined' || typeof ethers === 'undefined') {
-        console.error("Leaflet or Ethers.js library is not loaded. Check script tags in explorer.html.");
+    if (typeof ethers === 'undefined' || typeof L === 'undefined') {
+        console.error("Ethers.js or Leaflet is not loaded.");
         const mapDiv = document.getElementById('map');
-        if(mapDiv) {
-            mapDiv.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding-top: 50px;">Map library could not be loaded. Please check your connection and refresh.</p>';
-        }
+        if(mapDiv) mapDiv.innerHTML = '<p style="color:#ff6b6b;text-align:center;padding-top:50px;">A required library failed to load.</p>';
         return;
     }
 
@@ -33,12 +30,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                     const decodedMessage = parsedLog.args.data;
 
                     if (decodedMessage.includes('LAT:') && decodedMessage.includes('LON:') && decodedMessage.includes('MSG:')) {
-                        const latString = decodedMessage.split('LAT:')[1].split(';')[0];
-                        const lonString = decodedMessage.split('LON:')[1].split(';')[0];
+                        const lat = parseFloat(decodedMessage.split('LAT:')[1].split(';')[0]);
+                        const lon = parseFloat(decodedMessage.split('LON:')[1].split(';')[0]);
                         const message = decodedMessage.split('MSG:')[1].trim();
-
-                        const lat = parseFloat(latString);
-                        const lon = parseFloat(lonString);
 
                         if (!isNaN(lat) && !isNaN(lon)) {
                             const popupContent = `<b>Message:</b> ${message}<br><br><a href="https://bscscan.com/tx/${log.transactionHash}" target="_blank" class="link-arrow">View Transaction</a>`;
