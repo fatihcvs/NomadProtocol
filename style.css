@@ -31,7 +31,6 @@ section { padding: 4rem 0; }
 #how-it-works, #tokenomics, #roadmap, #token-details, #community, #anchor-ui { background: transparent; border-top: 1px solid var(--glass-border); }
 .guide-step, .roadmap-phase, .detail-card, .token-info, .anchor-form, .ledger-entry { background: var(--glass-bg); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); border: 1px solid var(--glass-border); border-radius: 15px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left;}
 .guide-step:hover, .roadmap-phase:hover, .detail-card:hover, .token-info:hover, .anchor-form:hover, .ledger-entry:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-#anchor-ui { padding: 5rem 0; }
+#anchor-ui, #whitepaper-content, #explorer-section, #ledger-section { padding-top: 8rem; }
 .anchor-form { max-width: 600px; margin: 2rem auto; }
-/* ...diğer stiller... */
 footer { text-align: center; padding: 4rem 2rem; color: var(--secondary-color); font-size: 0.9rem; border-top: 1px solid var(--glass-border); }
