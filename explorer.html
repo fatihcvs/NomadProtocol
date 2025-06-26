@@ -1,40 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorer - Nomad Protocol</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Leaflet Test</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    #map { width:100%; height:600px; }
+  </style>
 </head>
 <body>
-    <div id="starfield"></div>
-    <header>
-        <nav>
-            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Nomad</a></div>
-            <ul>
-                <li><a href="whitepaper.html">Whitepaper</a></li>
-                <li><a href="explorer.html">Explorer</a></li>
-                <li><a href="ledger.html">Ledger</a></li>
-                <li><a href="index.html#community">Community</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="explorer-section">
-            <div class="container">
-                <h2>The Collective Journal</h2>
-                <p>A map of moments, anchored to the blockchain by Nomads around the world. Each point is a memory, permanently etched in time. Click on a star to read its story.</p>
-            </div>
-            <div id="map"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Nomad Protocol. The permanent ledger of humanity.</p>
-    </footer>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
-    <script src="script.js"></script>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([45, 15], 2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+  </script>
 </body>
 </html>
