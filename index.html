@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nomad Protocol - Anchor Your Moments</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -23,18 +21,16 @@
     </header>
     <main>
         <section id="hero">
-            <div class="container">
-                <h1>Anchor Your Moments to Eternity.</h1>
-                <p>Nomad is a decentralized protocol for transforming fleeting memories into immutable on-chain records. This is the permanent journal of humanity.</p>
-                <div class="cta-buttons">
-                    <a href="whitepaper.html" class="btn btn-primary">[ Read the Whitepaper ]</a>
-                    <a href="https://t.me/NomadProtocol" target="_blank" class="btn btn-secondary">[ Join the Journey ]</a>
-                </div>
+            <h1>Anchor Your Moments to Eternity.</h1>
+            <p>Nomad is a decentralized protocol for transforming fleeting memories into immutable on-chain records. This is the permanent journal of humanity.</p>
+            <div class="cta-buttons">
+                <a href="whitepaper.html" class="btn btn-primary">[ Read the Whitepaper ]</a>
+                <a href="https://t.me/NomadProtocol" target="_blank" class="btn btn-secondary">[ Join the Journey ]</a>
             </div>
         </section>
 
-        <section id="anchor-ui">
-            <div class="container">
+        <section id="anchor-ui" class="glass-effect">
+            <div class="container anchor-container">
                 <h2>Anchor Your Own Memory</h2>
                 <p>Become a part of the collective journal. The ritual costs 1 $NMD as ink. Use the form below to permanently etch your moment onto the blockchain.</p>
                 <div class="anchor-form">
@@ -58,14 +54,14 @@
             <div class="container">
                 <h2>Our Journey (Roadmap)</h2>
                 <div class="roadmap-container">
-                    <div class="roadmap-phase"><h3>Phase 1: The Spark ✅</h3><span>(Completed)</span><ul><li>Concept & Whitepaper</li><li>Smart Contract Deployment</li><li>v1.0 Website Launch</li><li>First Memories Anchored</li></ul></div>
+                    <div class="roadmap-phase"><h3>Phase 1: The Spark ✅</h3><span>(Completed)</span><ul><li>Concept & Manifesto</li><li>Smart Contract Deployment</li><li>v1.0 Website Launch</li><li>First Memories Anchored</li></ul></div>
                     <div class="roadmap-phase"><h3>Phase 2: The Cartographers ⏳</h3><span>(In Progress)</span><ul><li>Community Growth Initiatives</li><li>"First 100 Explorers" Program</li><li>Initial DEX Liquidity</li></ul></div>
                     <div class="roadmap-phase"><h3>Phase 3: The Living Ledger 🗺️</h3><span>(Planned)</span><ul><li>Interactive Explorer v2</li><li>Personal Journeys Feature</li></ul></div>
                     <div class="roadmap-phase"><h3>Phase 4: The Collective 🔭</h3><span>(Vision)</span><ul><li>Nomad DAO Formation</li><li>$NMD Governance Voting</li></ul></div>
                 </div>
             </div>
         </section>
-        
+
         <section id="tokenomics">
             <div class="container">
                 <h2>The $NMD Token</h2>
@@ -77,7 +73,9 @@
                         <div class="token-info"><h3>Lock & Vesting Schedule</h3><ul><li><strong>Liquidity:</strong> LP tokens locked for 2 years.</li><li><strong>Community:</strong> 36-month linear unlock.</li><li><strong>Team:</strong> 6-month cliff, then 24-month linear vesting.</li><li><strong>Founder:</strong> 6-month cliff, then 24-month linear vesting.</li></ul></div>
                     </div>
                 </div>
-                 <a href="https://bscscan.com/token/0xdF80ce5D83282Cf12C285620a01900FD434AdCC7" target="_blank" class="link-arrow" style="margin-top: 3rem; display: inline-block;">[ View Token Contract → ]</a>
+                 <a href="https://bscscan.com/token/0xdF80ce5D83282Cf12C285620a01900FD434AdCC7" target="_blank" class="link-arrow" style="margin-top: 3rem; display: inline-block;">
+                    [&nbsp;View Token Contract&nbsp;→&nbsp;]
+                </a>
             </div>
         </section>
 
@@ -85,9 +83,27 @@
             <div class="container">
                 <h2>Token Details</h2>
                 <div class="details-grid">
-                    <div class="detail-card"><div class="card-icon"><img src="icon-quill.png" alt="Utility Icon"></div><h3>Utility: The Ink of History</h3><p>$NMD is the sole medium for anchoring memories to the Ledger. Each transaction is a symbolic act of using 'ink' to make a permanent mark.</p></div>
-                    <div class="detail-card"><div class="card-icon"><img src="icon-governance.png" alt="Governance Icon"></div><h3>Governance: The Voice of the Collective</h3><p>In Phase 4, $NMD will grant holders the right to participate in the Nomad DAO to vote on the future of the protocol.</p></div>
-                    <div class="detail-card"><div class="card-icon"><img src="icon-hash.png" alt="Technical Icon"></div><h3>Technical Specs</h3><ul><li><strong>Name:</strong> Nomad</li><li><strong>Symbol:</strong> NMD</li><li><strong>Total Supply:</strong> 1,000,000,000</li><li><strong>Network:</strong> BNB Smart Chain</li><li><strong>Standard:</strong> BEP-20</li></ul></div>
+                    <div class="detail-card">
+                        <div class="token-icon-wrapper"><img src="icon-quill.png" alt="Utility Icon" class="token-icon"></div>
+                        <h3>Utility: The Ink of History</h3>
+                        <p>$NMD is the sole medium for anchoring memories to the Ledger. Each transaction is a symbolic act of using 'ink' to make a permanent mark.</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="token-icon-wrapper"><img src="icon-governance.png" alt="Governance Icon" class="token-icon"></div>
+                        <h3>Governance: The Voice of the Collective</h3>
+                        <p>In Phase 4, $NMD will grant holders the right to participate in the Nomad DAO to vote on the future of the protocol.</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="token-icon-wrapper"><img src="icon-hash.png" alt="Technical Icon" class="token-icon"></div>
+                        <h3>Technical Specs</h3>
+                        <ul>
+                            <li><strong>Name:</strong> Nomad</li>
+                            <li><strong>Symbol:</strong> NMD</li>
+                            <li><strong>Total Supply:</strong> 1,000,000,000</li>
+                            <li><strong>Network:</strong> BNB Smart Chain</li>
+                            <li><strong>Standard:</strong> BEP-20</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
